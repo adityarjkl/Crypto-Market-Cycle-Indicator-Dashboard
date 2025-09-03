@@ -1,31 +1,31 @@
 ID,Indicator,Current Value,Current Value Unit,Reference_Value,Ref Value,Ref Value Unit
-1,Bitcoin Ahr999 Index,1.0,Float,≥4,4.00,Float
-2,Pi Cycle Top Indicator,111025.27,$,"≥$189,352",189352.00,$
-3,Puell Multiple,1.29,Float,≥2.2,2.20,Float
-4,Bitcoin Rainbow Chart,3.0,Float,≥5,5.00,Float
-5,Days of ETF Net Outflows,0.0,Float,≥10,10.00,Float
-6,ETF-to-BTC Ratio,4.95,%,≤3.5%,3.50,%
-7,2-Year MA Multiplier,110585.58,$,"≥$361,366",361366.00,$
-8,MVRV Z-Score,2.1,Float,≥5,5.00,Float
-9,Bitcoin Bubble Index,13.48,Float,≥80,80.00,Float
-10,USDT Flexible Savings,5.71,%,≥29%,29.00,%
-11,RSI - 22 Day,46.23,Float,≥80,80.00,Float
-12,CMC Altcoin Season Index,49.0,Float,≥75,75.00,Float
-13,Bitcoin Dominance,57.78,%,≥65%,65.00,%
-14,Bitcoin Long Term Holder Supply,15.48,Million,≤13.5M,13.50,Million
-15,Bitcoin Short Term Holder Supply (%),22.27,%,≥30%,30.00,%
-16,Bitcoin Reserve Risk,0.0024,Float,≥0.005,0.01,Float
-17,Bitcoin Net Unrealized P&L (NUPL),54.91,%,≥70%,70.00,%
-18,Bitcoin RHODL Ratio,3315.0,Float,≥10000,10000.00,Float
-19,Bitcoin Macro Oscillator (BMO),0.8,Float,≥1.4,1.40,Float
-20,Bitcoin MVRV Ratio,2.11,Float,≥3,3.00,Float
-21,Bitcoin 4-Year Moving Average,2.1,Float,≥3.5,3.50,Float
-22,Crypto Bitcoin Bull Run Index (CBBI),76.0,Float,≥90,90.00,Float
-23,Mayer Multiple,1.13,Float,≥2.2,2.20,Float
+1,Bitcoin Ahr999 Index,1.0,Float,≥4,4.0,Float
+2,Pi Cycle Top Indicator,111025.27,$,"≥$189,352",189352.0,$
+3,Puell Multiple,1.29,Float,≥2.2,2.2,Float
+4,Bitcoin Rainbow Chart,3.0,Float,≥5,5.0,Float
+5,Days of ETF Net Outflows,0.0,Float,≥10,10.0,Float
+6,ETF-to-BTC Ratio,4.95,%,≤3.5%,3.5,%
+7,2-Year MA Multiplier,110585.58,$,"≥$361,366",361366.0,$
+8,MVRV Z-Score,2.1,Float,≥5,5.0,Float
+9,Bitcoin Bubble Index,13.48,Float,≥80,80.0,Float
+10,USDT Flexible Savings,5.71,%,≥29%,29.0,%
+11,RSI - 22 Day,46.23,Float,≥80,80.0,Float
+12,CMC Altcoin Season Index,49.0,Float,≥75,75.0,Float
+13,Bitcoin Dominance,57.78,%,≥65%,65.0,%
+14,Bitcoin Long Term Holder Supply,15.48,Million,≤13.5M,13.5,Million
+15,Bitcoin Short Term Holder Supply (%),22.27,%,≥30%,30.0,%
+16,Bitcoin Reserve Risk,0.0024,Float,≥0.005,0.005,Float
+17,Bitcoin Net Unrealized P&L (NUPL),54.91,%,≥70%,70.0,%
+18,Bitcoin RHODL Ratio,3315.0,Float,≥10000,10000.0,Float
+19,Bitcoin Macro Oscillator (BMO),0.8,Float,≥1.4,1.4,Float
+20,Bitcoin MVRV Ratio,2.11,Float,≥3,3.0,Float
+21,Bitcoin 4-Year Moving Average,2.1,Float,≥3.5,3.5,Float
+22,Crypto Bitcoin Bull Run Index (CBBI),76.0,Float,≥90,90.0,Float
+23,Mayer Multiple,1.13,Float,≥2.2,2.2,Float
 24,Bitcoin AHR999x Top Escape Indicator,3.01,Float,≤0.45,0.45,Float
-25,MicroStrategy's Avg Bitcoin Cost,73526.0,$,"≥$155,655",155655.00,$
-26,Bitcoin Trend Indicator,6.14,Float,≥7,7.00,Float
-27,3-Month Annualized Ratio,9.95,%,≥30%,30.00,%
-28,Bitcoin Terminal Price,110585.58,$,"≥$187,702",187702.00,$
-29,Golden Ratio Multiplier,110585.58,$,"≥$135,522",135522.00,$
-30,Smithson's Bitcoin Price Forecast,110585.58,$,"≥$175,000",175000.00,$
+25,MicroStrategy's Avg Bitcoin Cost,73526.0,$,"≥$155,655",155655.0,$
+26,Bitcoin Trend Indicator,6.14,Float,≥7,7.0,Float
+27,3-Month Annualized Ratio,9.95,%,≥30%,30.0,%
+28,Bitcoin Terminal Price,110585.58,$,"≥$187,702",187702.0,$
+29,Golden Ratio Multiplier,110585.58,$,"≥$135,522",135522.0,$
+30,Smithson's Bitcoin Price Forecast,110585.58,$,"≥$175,000",175000.0,$

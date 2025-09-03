@@ -58,8 +58,8 @@ def extract_unit(val):
 
 df['Ref Value Unit'] = df['Reference_Value'].apply(extract_unit)
 
-# Format Ref Value column to two decimal places if it's a number
-df['Ref Value'] = df['Ref Value'].apply(lambda x: f"{x:.2f}" if isinstance(x, float) else x)
+# Format Ref Value column: convert float to string without rounding
+df['Ref Value'] = df['Ref Value'].apply(lambda x: str(x) if isinstance(x, float) or isinstance(x, int) else x)
 
 
 # Final column order
