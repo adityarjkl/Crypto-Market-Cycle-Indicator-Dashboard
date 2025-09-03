@@ -1,56 +1,73 @@
 import pandas as pd
 import re
 
-df = pd.read_csv('Crypto_Market_Cycle_Indicators_export.csv', header=None, skiprows=1,
-    names=['ID', 'Indicator', 'Value', 'Percent', 'Target'])
+# Load CSV with correct column names
+df = pd.read_csv(
+    'Crypto_Market_Cycle_Indicators_export.csv',
+    header=None,
+    skiprows=1,
+    names=['ID', 'Indicator', 'Value', 'Percent', 'Reference_Value']
+)
 
-# Clean Value column (currency)
+# Clean Value column and extract unit
 def clean_value(val):
-    if isinstance(val, str):
-        unit = ''
-        if '$' in val:
-            unit = '$'
-        elif '%' in val:
-            unit = '%'
-        elif 'M' in val:
-            unit = 'Million'
-        val = val.replace('$', '').replace(',', '').replace('%', '').replace('M', '')
+    if not isinstance(val, str):
         try:
-            return float(val), unit
+            return float(val), 'Float'
         except:
-            return val, unit
-    else:
-        try:
-            return float(val), ''
-        except:
-            return val, ''
+            return val, 'Float'
+    unit = (
+        '$' if '$' in val else
+        '%' if '%' in val else
+        'Million' if 'M' in val else
+        'Float'
+    )
+    val_clean = val.replace('$', '').replace(',', '').replace('%', '').replace('M', '')
+    try:
+        return float(val_clean), unit
+    except:
+        return val_clean, unit
+
+df[['Current Value', 'Current Value Unit']] = df['Value'].apply(lambda x: pd.Series(clean_value(x)))
 
 
-df[['Value', 'Value_Unit']] = df['Value'].apply(lambda x: pd.Series(clean_value(x)))
 
-# Replace empty Value_Unit cells with "Float"
-df['Value_Unit'] = df['Value_Unit'].replace('', 'Float')
+# Ref Value: strip symbols, keep as int/float if possible
+def strip_symbols_and_convert(val):
+    val_str = str(val)
+    clean_val = re.sub(r'[><=$%,M≥≤]', '', val_str).replace(',', '').strip()
+    try:
+        num = float(clean_val)
+        return int(num) if num.is_integer() else num
+    except:
+        return clean_val
+
+df['Ref Value'] = df['Reference_Value'].apply(strip_symbols_and_convert)
 
 
+# Ref Value Unit: extract unit from Reference_Value
+def extract_unit(val):
+    val_str = str(val)
+    if '$' in val_str:
+        return '$'
+    if 'M' in val_str:
+        return 'Million'
+    if '%' in val_str:
+        return '%'
+    return 'Float'
 
-# Clean Target column (extract comparator, value, unit)
-def clean_target(tgt):
-    m = re.match(r"^\s*(>=|<=|>|<|=)?\s*\$?([\d,\.]+)", str(tgt))
-    unit = '$' if '$' in str(tgt) else ''
-    if m:
-        comp = m.group(1) if m.group(1) else "="
-        val = float(m.group(2).replace(',',''))
-        return comp, val, unit
-    else:
-        return '=', tgt, ''
-df[['Target_Comparator', 'Target_Value', 'Target_Unit']] = df['Target'].apply(lambda x: pd.Series(clean_target(x)))
+df['Ref Value Unit'] = df['Reference_Value'].apply(extract_unit)
 
-# Drop the Percent column
-df = df.drop(columns=['Percent'])
+# Format Ref Value column to two decimal places if it's a number
+df['Ref Value'] = df['Ref Value'].apply(lambda x: f"{x:.2f}" if isinstance(x, float) else x)
 
-# Reorder columns to keep Value_Unit right after Value
-desired_order = ['ID', 'Indicator', 'Value', 'Value_Unit', 'Target', 'Target_Comparator', 'Target_Value', 'Target_Unit']
+
+# Final column order
+desired_order = [
+    'ID', 'Indicator', 'Current Value', 'Current Value Unit',
+    'Reference_Value', 'Ref Value', 'Ref Value Unit'
+]
 df = df[desired_order]
 
 # Save cleaned data
-df.to_csv('Cleaned_Crypto_Market_Cycle_Indicators.csv',index=False)
+df.to_csv('Cleaned_Crypto_Market_Cycle_Indicators.csv', index=False)
